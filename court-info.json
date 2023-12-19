@@ -1,0 +1,26 @@
+{
+	"arrivalDate": "2023-12-18T17:45:50.432Z",
+	"widgetId": "f3086c1c-7fa3-47fd-9976-0e777c8a7456",
+	"calendarId": "7998c433-21f7-4914-8b85-9c61d6392511",
+	"url": "https://cityofmarkham.perfectmind.com/Clients/BookMe4LandingPages/Facility",
+	"landingPageBackUrl": "https://cityofmarkham.perfectmind.com/Clients/BookMe4FacilityList/List",
+	"courts": [
+		{
+			"court": 1,
+			"facilityId": "fb8d7c62-2760-48a9-9ecb-b89d8a6e02c2"
+		},
+		{
+			"court": 2,
+			"facilityId": "d99a2d25-dcc1-4bdf-a3bf-d9e0024fc623"
+		},
+		{
+			"court": 3,
+			"facilityId": "02753035-ffab-4b9d-8f97-6fff7c46b88c"
+		},
+		{
+			"court": 4,
+			"facilityId": "a80258b8-9b5b-4349-addf-3da3e80d9292"
+		}
+
+	]
+}
