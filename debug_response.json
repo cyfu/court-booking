@@ -1,0 +1,1101 @@
+{
+  "availabilities": [
+    {
+      "Date": "/Date(1759708800000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638953326000000000,
+              "Time": {
+                "Hours": 7,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 270000000000,
+                "Days": 0,
+                "TotalDays": 0.3125,
+                "TotalHours": 7.5,
+                "TotalMilliseconds": 27000000,
+                "TotalMinutes": 450,
+                "TotalSeconds": 27000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638953362000000000,
+              "Time": {
+                "Hours": 8,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 306000000000,
+                "Days": 0,
+                "TotalDays": 0.35416666666666663,
+                "TotalHours": 8.5,
+                "TotalMilliseconds": 30600000,
+                "TotalMinutes": 510,
+                "TotalSeconds": 30600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638953470000000000,
+              "Time": {
+                "Hours": 11,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 414000000000,
+                "Days": 0,
+                "TotalDays": 0.47916666666666663,
+                "TotalHours": 11.5,
+                "TotalMilliseconds": 41400000,
+                "TotalMinutes": 690,
+                "TotalSeconds": 41400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638953614000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 558000000000,
+                "Days": 0,
+                "TotalDays": 0.6458333333333333,
+                "TotalHours": 15.5,
+                "TotalMilliseconds": 55800000,
+                "TotalMinutes": 930,
+                "TotalSeconds": 55800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    },
+    {
+      "Date": "/Date(1759795200000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638954226000000000,
+              "Time": {
+                "Hours": 8,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 306000000000,
+                "Days": 0,
+                "TotalDays": 0.35416666666666663,
+                "TotalHours": 8.5,
+                "TotalMilliseconds": 30600000,
+                "TotalMinutes": 510,
+                "TotalSeconds": 30600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638954262000000000,
+              "Time": {
+                "Hours": 9,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 342000000000,
+                "Days": 0,
+                "TotalDays": 0.3958333333333333,
+                "TotalHours": 9.5,
+                "TotalMilliseconds": 34200000,
+                "TotalMinutes": 570,
+                "TotalSeconds": 34200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638954406000000000,
+              "Time": {
+                "Hours": 13,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 486000000000,
+                "Days": 0,
+                "TotalDays": 0.5625,
+                "TotalHours": 13.5,
+                "TotalMilliseconds": 48600000,
+                "TotalMinutes": 810,
+                "TotalSeconds": 48600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638954442000000000,
+              "Time": {
+                "Hours": 14,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 522000000000,
+                "Days": 0,
+                "TotalDays": 0.6041666666666666,
+                "TotalHours": 14.5,
+                "TotalMilliseconds": 52200000,
+                "TotalMinutes": 870,
+                "TotalSeconds": 52200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638954478000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 558000000000,
+                "Days": 0,
+                "TotalDays": 0.6458333333333333,
+                "TotalHours": 15.5,
+                "TotalMilliseconds": 55800000,
+                "TotalMinutes": 930,
+                "TotalSeconds": 55800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    },
+    {
+      "Date": "/Date(1759881600000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638955090000000000,
+              "Time": {
+                "Hours": 8,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 306000000000,
+                "Days": 0,
+                "TotalDays": 0.35416666666666663,
+                "TotalHours": 8.5,
+                "TotalMilliseconds": 30600000,
+                "TotalMinutes": 510,
+                "TotalSeconds": 30600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638955198000000000,
+              "Time": {
+                "Hours": 11,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 414000000000,
+                "Days": 0,
+                "TotalDays": 0.47916666666666663,
+                "TotalHours": 11.5,
+                "TotalMilliseconds": 41400000,
+                "TotalMinutes": 690,
+                "TotalSeconds": 41400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638955270000000000,
+              "Time": {
+                "Hours": 13,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 486000000000,
+                "Days": 0,
+                "TotalDays": 0.5625,
+                "TotalHours": 13.5,
+                "TotalMilliseconds": 48600000,
+                "TotalMinutes": 810,
+                "TotalSeconds": 48600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638955306000000000,
+              "Time": {
+                "Hours": 14,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 522000000000,
+                "Days": 0,
+                "TotalDays": 0.6041666666666666,
+                "TotalHours": 14.5,
+                "TotalMilliseconds": 52200000,
+                "TotalMinutes": 870,
+                "TotalSeconds": 52200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638955342000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 558000000000,
+                "Days": 0,
+                "TotalDays": 0.6458333333333333,
+                "TotalHours": 15.5,
+                "TotalMilliseconds": 55800000,
+                "TotalMinutes": 930,
+                "TotalSeconds": 55800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    },
+    {
+      "Date": "/Date(1759968000000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638955918000000000,
+              "Time": {
+                "Hours": 7,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 270000000000,
+                "Days": 0,
+                "TotalDays": 0.3125,
+                "TotalHours": 7.5,
+                "TotalMilliseconds": 27000000,
+                "TotalMinutes": 450,
+                "TotalSeconds": 27000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638955990000000000,
+              "Time": {
+                "Hours": 9,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 342000000000,
+                "Days": 0,
+                "TotalDays": 0.3958333333333333,
+                "TotalHours": 9.5,
+                "TotalMilliseconds": 34200000,
+                "TotalMinutes": 570,
+                "TotalSeconds": 34200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638956206000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 558000000000,
+                "Days": 0,
+                "TotalDays": 0.6458333333333333,
+                "TotalHours": 15.5,
+                "TotalMilliseconds": 55800000,
+                "TotalMinutes": 930,
+                "TotalSeconds": 55800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638956422000000000,
+              "Time": {
+                "Hours": 21,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 774000000000,
+                "Days": 0,
+                "TotalDays": 0.8958333333333333,
+                "TotalHours": 21.5,
+                "TotalMilliseconds": 77400000,
+                "TotalMinutes": 1290,
+                "TotalSeconds": 77400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    },
+    {
+      "Date": "/Date(1760054400000)/",
+      "BookingGroups": [
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638957070000000000,
+              "Time": {
+                "Hours": 15,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 558000000000,
+                "Days": 0,
+                "TotalDays": 0.6458333333333333,
+                "TotalHours": 15.5,
+                "TotalMilliseconds": 55800000,
+                "TotalMinutes": 930,
+                "TotalSeconds": 55800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    },
+    {
+      "Date": "/Date(1760140800000)/",
+      "BookingGroups": [
+        {
+          "Name": "Morning",
+          "Order": 0,
+          "AvailableSpots": [
+            {
+              "Ticks": 638957646000000000,
+              "Time": {
+                "Hours": 7,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 270000000000,
+                "Days": 0,
+                "TotalDays": 0.3125,
+                "TotalHours": 7.5,
+                "TotalMilliseconds": 27000000,
+                "TotalMinutes": 450,
+                "TotalSeconds": 27000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638957682000000000,
+              "Time": {
+                "Hours": 8,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 306000000000,
+                "Days": 0,
+                "TotalDays": 0.35416666666666663,
+                "TotalHours": 8.5,
+                "TotalMilliseconds": 30600000,
+                "TotalMinutes": 510,
+                "TotalSeconds": 30600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Afternoon",
+          "Order": 1,
+          "AvailableSpots": [
+            {
+              "Ticks": 638958006000000000,
+              "Time": {
+                "Hours": 17,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 630000000000,
+                "Days": 0,
+                "TotalDays": 0.7291666666666666,
+                "TotalHours": 17.5,
+                "TotalMilliseconds": 63000000,
+                "TotalMinutes": 1050,
+                "TotalSeconds": 63000
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        },
+        {
+          "Name": "Late",
+          "Order": 2,
+          "AvailableSpots": [
+            {
+              "Ticks": 638958042000000000,
+              "Time": {
+                "Hours": 18,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 666000000000,
+                "Days": 0,
+                "TotalDays": 0.7708333333333333,
+                "TotalHours": 18.5,
+                "TotalMilliseconds": 66600000,
+                "TotalMinutes": 1110,
+                "TotalSeconds": 66600
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638958078000000000,
+              "Time": {
+                "Hours": 19,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 702000000000,
+                "Days": 0,
+                "TotalDays": 0.8125,
+                "TotalHours": 19.5,
+                "TotalMilliseconds": 70200000,
+                "TotalMinutes": 1170,
+                "TotalSeconds": 70200
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638958114000000000,
+              "Time": {
+                "Hours": 20,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 738000000000,
+                "Days": 0,
+                "TotalDays": 0.8541666666666666,
+                "TotalHours": 20.5,
+                "TotalMilliseconds": 73800000,
+                "TotalMinutes": 1230,
+                "TotalSeconds": 73800
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            },
+            {
+              "Ticks": 638958150000000000,
+              "Time": {
+                "Hours": 21,
+                "Minutes": 30,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 774000000000,
+                "Days": 0,
+                "TotalDays": 0.8958333333333333,
+                "TotalHours": 21.5,
+                "TotalMilliseconds": 77400000,
+                "TotalMinutes": 1290,
+                "TotalSeconds": 77400
+              },
+              "Duration": {
+                "Hours": 1,
+                "Minutes": 0,
+                "Seconds": 0,
+                "Milliseconds": 0,
+                "Ticks": 36000000000,
+                "Days": 0,
+                "TotalDays": 0.041666666666666664,
+                "TotalHours": 1,
+                "TotalMilliseconds": 3600000,
+                "TotalMinutes": 60,
+                "TotalSeconds": 3600
+              },
+              "ResourceIds": null,
+              "IsDisabled": false,
+              "Title": "Book Now!"
+            }
+          ]
+        }
+      ],
+      "OpeningTime": {
+        "Hours": 7,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 270000000000,
+        "Days": 0,
+        "TotalDays": 0.3125,
+        "TotalHours": 7.5,
+        "TotalMilliseconds": 27000000,
+        "TotalMinutes": 450,
+        "TotalSeconds": 27000
+      },
+      "ClosingTime": {
+        "Hours": 22,
+        "Minutes": 30,
+        "Seconds": 0,
+        "Milliseconds": 0,
+        "Ticks": 810000000000,
+        "Days": 0,
+        "TotalDays": 0.9375,
+        "TotalHours": 22.5,
+        "TotalMilliseconds": 81000000,
+        "TotalMinutes": 1350,
+        "TotalSeconds": 81000
+      }
+    }
+  ],
+  "extraDaysInfo": null
+}
