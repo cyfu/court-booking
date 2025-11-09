@@ -45,7 +45,7 @@ def check_court_availability():
         if data['availability']:
             print("  Status: ✓ Data retrieved successfully")
 
-            # Try to parse availability data
+            # Parse and display availability data in table format
             slots = session.parse_availability_data(data['availability'])
 
             if slots:
@@ -56,12 +56,8 @@ def check_court_availability():
                     'slots': slots
                 })
 
-                # Show first few available slots
-                for i, slot in enumerate(slots[:3]):
-                    print(f"    {i+1}. {slot.get('date', 'N/A')} at {slot.get('time', 'N/A')}")
-
-                if len(slots) > 3:
-                    print(f"    ... and {len(slots) - 3} more slots")
+                # Display availability table for this court
+                session.display_availability_table(slots)
             else:
                 print("  ⚠️  No available slots found")
         else:

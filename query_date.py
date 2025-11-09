@@ -27,8 +27,8 @@ def query_date(date_str):
 
     # Get verification token
     if session.get_verification_token(facility_id):
-        # Check availability for specific date
-        availability_data = session.check_availability(facility_id, date=date_str, days_count=7)
+        # Check availability (API always returns 7 days from current date)
+        availability_data = session.check_availability(facility_id, days_count=7)
 
         if availability_data:
             # Parse the data

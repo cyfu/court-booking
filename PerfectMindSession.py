@@ -31,7 +31,7 @@ class PerfectMindSession:
             'facilityId': facility_id,
             'widgetId': 'f3086c1c-7fa3-47fd-9976-0e777c8a7456',
             'calendarId': '7998c433-21f7-4914-8b85-9c61d6392511',
-            'arrivalDate': self._get_arrival_date(),
+            'arrivalDate': self._get_current_datetime(),
             'landingPageBackUrl': 'https://cityofmarkham.perfectmind.com/Clients/BookMe4FacilityList/List?widgetId=f3086c1c-7fa3-47fd-9976-0e777c8a7456&calendarId=7998c433-21f7-4914-8b85-9c61d6392511'
         }
 
@@ -100,13 +100,13 @@ class PerfectMindSession:
             'X-Requested-With': 'XMLHttpRequest',
         }
 
-        # Prepare data
-        if date is None:
-            api_date = self._get_arrival_date()
+        # Use provided date or current datetime for API request
+        if date:
+            api_date = self._format_date_for_api(date)
+            print(f"✓ Using specific date for API: {api_date}")
         else:
-            # Convert specific date to API format
-            api_date = self._format_specific_date(date)
-
+            api_date = self._get_current_datetime()
+            print(f"✓ Using current datetime for API: {api_date}")
         data = {
             'facilityId': facility_id,
             'date': api_date,
@@ -125,13 +125,15 @@ class PerfectMindSession:
         }
 
         try:
-            # print(f"Sending request to {url} with headers: {headers} and data: {data}")
+            print(
+                f"Sending request to {url} with headers: {headers} and data: {data}")
             response = self.session.post(url, headers=headers, data=data)
             response.raise_for_status()
 
             if response.status_code == 200:
                 availability_data = response.json()
                 print(f"✓ Got availability data for facility {facility_id}")
+                print(f"✓ Response: {availability_data}")
                 return availability_data
             else:
                 print(f"✗ Request failed with status code: {response.status_code}")
@@ -169,36 +171,98 @@ class PerfectMindSession:
 
         return results
 
-    def _format_specific_date(self, date_str):
-        """Format a specific date string to API format
-
-        Args:
-            date_str: Date in format 'YYYY-MM-DD'
-
-        Returns:
-            Formatted date string for API
-        """
-        try:
-            # Parse the input date
-            from datetime import datetime
-            input_date = datetime.strptime(date_str, '%Y-%m-%d')
-
-            # Convert to Toronto timezone
-            toronto_tz = pytz.timezone('America/Toronto')
-            toronto_date = toronto_tz.localize(input_date)
-
-            # Format for API (start of day)
-            return toronto_date.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
-        except ValueError as e:
-            print(f"✗ Invalid date format '{date_str}'. Use YYYY-MM-DD format.")
-            return self._get_arrival_date()  # Fallback to current date
-
-    def _get_arrival_date(self):
-        """Get arrival date in the required format using Toronto time"""
+    def _get_current_datetime(self):
+        """Get current datetime in the required format using Toronto time"""
         toronto_tz = pytz.timezone('America/Toronto')
         toronto_now = datetime.now(toronto_tz)
-        # Check for current week starting from today
         return toronto_now.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+
+    def _format_date_for_api(self, date_str):
+        """Format a specific date string to API format (start of day)"""
+        try:
+            from datetime import datetime
+            input_date = datetime.strptime(date_str, '%Y-%m-%d')
+            formatted_date = input_date.replace(hour=0, minute=0, second=0, microsecond=0)
+            return formatted_date.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+        except ValueError:
+            return self._get_current_datetime()
+
+    def get_complete_availability(self, facility_id, duration=60):
+        """Get complete availability by making two API calls to cover 8 days total"""
+        all_slots = []
+        
+        # First call: current datetime (gets next 6-7 days)
+        availability_1 = self.check_availability(facility_id, duration=duration)
+        if availability_1:
+            slots_1 = self.parse_availability_data(availability_1)
+            all_slots.extend(slots_1)
+        
+        # Second call: 7 days from now (gets 8th day)
+        from datetime import datetime, timedelta
+        toronto_tz = pytz.timezone('America/Toronto')
+        future_date = datetime.now(toronto_tz) + timedelta(days=7)
+        future_date_str = future_date.strftime('%Y-%m-%d')
+        
+        availability_2 = self.check_availability(facility_id, date=future_date_str, duration=duration)
+        if availability_2:
+            slots_2 = self.parse_availability_data(availability_2)
+            all_slots.extend(slots_2)
+        
+        return all_slots
+
+    def display_availability_table(self, slots):
+        """Display availability in table format with dates as columns"""
+        if not slots:
+            print("No availability data to display")
+            return
+        
+        # Group slots by date
+        slots_by_date = {}
+        for slot in slots:
+            date = slot['date']
+            if date not in slots_by_date:
+                slots_by_date[date] = []
+            slots_by_date[date].append(slot)
+        
+        # Get sorted dates
+        dates = sorted(slots_by_date.keys())
+        
+        # Print header
+        print("\n📅 Court Availability Table")
+        print("=" * (12 + len(dates) * 12))
+        
+        # Print date headers
+        header = "Time        "
+        for date in dates:
+            header += f"{date[-5:]:>11} "  # Show MM-DD only
+        print(header)
+        print("-" * len(header))
+        
+        # Get all unique times
+        all_times = set()
+        for date_slots in slots_by_date.values():
+            for slot in date_slots:
+                all_times.add(slot['time'])
+        
+        # Print availability for each time slot
+        for time in sorted(all_times):
+            row = f"{time:>11} "
+            for date in dates:
+                # Check if this time is available on this date
+                available = any(slot['time'] == time for slot in slots_by_date.get(date, []))
+                row += "     ✓     " if available else "     -     "
+            print(row)
+        
+        print("\n✓ = Available, - = Not Available")
+
+    def check_and_display_availability(self, facility_id, duration=60):
+        """Check availability and display in table format"""
+        availability_data = self.check_availability(facility_id, duration=duration)
+        if availability_data:
+            slots = self.parse_availability_data(availability_data)
+            self.display_availability_table(slots)
+            return slots
+        return []
 
     def parse_availability_data(self, availability_data):
         """Parse the availability data to extract available time slots"""
