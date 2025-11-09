@@ -3,16 +3,18 @@ import json
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import pytz
+import logging
 
 
 class PerfectMindSession:
     """Handles authentication and session management for PerfectMind booking system"""
 
-    def __init__(self):
+    def __init__(self, logger=None):
         self.session = requests.Session()
         self.base_url = "https://cityofmarkham.perfectmind.com"
         self.verification_token = None
         self.session_id = None
+        self.logger = logger or logging.getLogger(__name__)
 
         # Set default headers (matching browser exactly)
         self.session.headers.update({
@@ -47,13 +49,13 @@ class PerfectMindSession:
                 token_input = form.find('input', {'name': '__RequestVerificationToken'})
                 if token_input:
                     self.verification_token = token_input.get('value')
-                    print(f"✓ Got verification token: {self.verification_token[:20]}...")
+                    self.logger.info(f"Got verification token: {self.verification_token[:20]}...")
                     return True
 
             # Extract session ID and other cookies
             if 'PMSessionId' in self.session.cookies:
                 self.session_id = self.session.cookies['PMSessionId']
-                print(f"✓ Got session ID: {self.session_id}")
+                self.logger.info(f"Got session ID: {self.session_id}")
 
             # Set additional cookies that might be needed
             self.session.cookies.set('perfectmindmobilefeature', '0')
@@ -63,7 +65,7 @@ class PerfectMindSession:
             return False
 
         except requests.RequestException as e:
-            print(f"✗ Failed to get verification token: {e}")
+            self.logger.error(f"Failed to get verification token: {e}")
             return False
 
     def check_availability(self, facility_id, date=None, days_count=7, duration=60):
@@ -82,6 +84,11 @@ class PerfectMindSession:
         url = f"{self.base_url}/Clients/BookMe4LandingPages/FacilityAvailability"
 
         # Set headers for AJAX request (matching browser exactly)
+        # Use current datetime for Referer arrivalDate to match get_verification_token
+        arrival_date = self._get_current_datetime()
+        landing_page_back_url = 'https%3A%2F%2Fcityofmarkham.perfectmind.com%2FClients%2FBookMe4FacilityList%2FList%3FwidgetId%3Df3086c1c-7fa3-47fd-9976-0e777c8a7456%26calendarId%3D7998c433-21f7-4914-8b85-9c61d6392511'
+        referer_url = f"{self.base_url}/Clients/BookMe4LandingPages/Facility?facilityId={facility_id}&widgetId=f3086c1c-7fa3-47fd-9976-0e777c8a7456&calendarId=7998c433-21f7-4914-8b85-9c61d6392511&arrivalDate={arrival_date}&landingPageBackUrl={landing_page_back_url}"
+
         headers = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'Accept-Encoding': 'gzip, deflate, br, zstd',
@@ -89,7 +96,7 @@ class PerfectMindSession:
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
             'Origin': 'https://cityofmarkham.perfectmind.com',
             'Priority': 'u=0, i',
-            'Referer': f"{self.base_url}/Clients/BookMe4LandingPages/Facility?facilityId={facility_id}&widgetId=f3086c1c-7fa3-47fd-9976-0e777c8a7456&calendarId=7998c433-21f7-4914-8b85-9c61d6392511&arrivalDate=2025-10-05T23:05:36.734Z&landingPageBackUrl=https%3A%2F%2Fcityofmarkham.perfectmind.com%2FClients%2FBookMe4FacilityList%2FList%3FwidgetId%3Df3086c1c-7fa3-47fd-9976-0e777c8a7456%26calendarId%3D7998c433-21f7-4914-8b85-9c61d6392511",
+            'Referer': referer_url,
             'Sec-Ch-Ua': '"Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"',
             'Sec-Ch-Ua-Mobile': '?0',
             'Sec-Ch-Ua-Platform': '"Windows"',
@@ -103,10 +110,10 @@ class PerfectMindSession:
         # Use provided date or current datetime for API request
         if date:
             api_date = self._format_date_for_api(date)
-            print(f"✓ Using specific date for API: {api_date}")
+            self.logger.info(f"Using specific date for API: {api_date}")
         else:
             api_date = self._get_current_datetime()
-            print(f"✓ Using current datetime for API: {api_date}")
+            self.logger.info(f"Using current datetime for API: {api_date}")
         data = {
             'facilityId': facility_id,
             'date': api_date,
@@ -125,25 +132,24 @@ class PerfectMindSession:
         }
 
         try:
-            print(
-                f"Sending request to {url} with headers: {headers} and data: {data}")
+            self.logger.debug(f"Sending request to {url} with headers: {headers} and data: {data}")
             response = self.session.post(url, headers=headers, data=data)
             response.raise_for_status()
 
             if response.status_code == 200:
                 availability_data = response.json()
-                print(f"✓ Got availability data for facility {facility_id}")
-                print(f"✓ Response: {availability_data}")
+                self.logger.info(f"Got availability data for facility {facility_id}")
+                self.logger.debug(f"Response: {availability_data}")
                 return availability_data
             else:
-                print(f"✗ Request failed with status code: {response.status_code}")
+                self.logger.error(f"Request failed with status code: {response.status_code}")
                 return None
 
         except requests.RequestException as e:
-            print(f"✗ Failed to check availability: {e}")
+            self.logger.error(f"Failed to check availability: {e}")
             return None
         except json.JSONDecodeError as e:
-            print(f"✗ Failed to parse JSON response: {e}")
+            self.logger.error(f"Failed to parse JSON response: {e}")
             return None
 
     def check_all_courts(self, courts_config):
@@ -154,7 +160,7 @@ class PerfectMindSession:
             court_num = court['court']
             facility_id = court['facilityId']
 
-            print(f"\n🏟️  Checking Court {court_num} (ID: {facility_id})")
+            self.logger.info(f"Checking Court {court_num} (ID: {facility_id})")
             availability = self.check_availability(facility_id)
 
             if availability:
@@ -190,32 +196,32 @@ class PerfectMindSession:
     def get_complete_availability(self, facility_id, duration=60):
         """Get complete availability by making two API calls to cover 8 days total"""
         all_slots = []
-        
+
         # First call: current datetime (gets next 6-7 days)
         availability_1 = self.check_availability(facility_id, duration=duration)
         if availability_1:
             slots_1 = self.parse_availability_data(availability_1)
             all_slots.extend(slots_1)
-        
+
         # Second call: 7 days from now (gets 8th day)
         from datetime import datetime, timedelta
         toronto_tz = pytz.timezone('America/Toronto')
         future_date = datetime.now(toronto_tz) + timedelta(days=7)
         future_date_str = future_date.strftime('%Y-%m-%d')
-        
+
         availability_2 = self.check_availability(facility_id, date=future_date_str, duration=duration)
         if availability_2:
             slots_2 = self.parse_availability_data(availability_2)
             all_slots.extend(slots_2)
-        
+
         return all_slots
 
     def display_availability_table(self, slots):
         """Display availability in table format with dates as columns"""
         if not slots:
-            print("No availability data to display")
+            self.logger.info("No availability data to display")
             return
-        
+
         # Group slots by date
         slots_by_date = {}
         for slot in slots:
@@ -223,37 +229,41 @@ class PerfectMindSession:
             if date not in slots_by_date:
                 slots_by_date[date] = []
             slots_by_date[date].append(slot)
-        
+
         # Get sorted dates
         dates = sorted(slots_by_date.keys())
-        
-        # Print header
-        print("\n📅 Court Availability Table")
-        print("=" * (12 + len(dates) * 12))
-        
-        # Print date headers
+
+        # Build table
+        table_lines = []
+        table_lines.append("\nCourt Availability Table")
+        table_lines.append("=" * (12 + len(dates) * 12))
+
+        # Date headers
         header = "Time        "
         for date in dates:
             header += f"{date[-5:]:>11} "  # Show MM-DD only
-        print(header)
-        print("-" * len(header))
-        
+        table_lines.append(header)
+        table_lines.append("-" * len(header))
+
         # Get all unique times
         all_times = set()
         for date_slots in slots_by_date.values():
             for slot in date_slots:
                 all_times.add(slot['time'])
-        
-        # Print availability for each time slot
+
+        # Availability for each time slot
         for time in sorted(all_times):
             row = f"{time:>11} "
             for date in dates:
                 # Check if this time is available on this date
                 available = any(slot['time'] == time for slot in slots_by_date.get(date, []))
                 row += "     ✓     " if available else "     -     "
-            print(row)
-        
-        print("\n✓ = Available, - = Not Available")
+            table_lines.append(row)
+
+        table_lines.append("\n✓ = Available, - = Not Available")
+
+        # Log the entire table
+        self.logger.info("\n".join(table_lines))
 
     def check_and_display_availability(self, facility_id, duration=60):
         """Check availability and display in table format"""
@@ -278,14 +288,18 @@ class PerfectMindSession:
             for day in days:
                 if isinstance(day, dict) and 'BookingGroups' in day:
                     # Extract date from /Date(timestamp)/ format using Toronto timezone
+                    # Note: API returns UTC timestamp but browser displays date that is one day ahead
+                    # So we need to add one day to match browser behavior
                     date_str = day.get('Date', '')
                     if date_str.startswith('/Date(') and date_str.endswith(')/'):
                         timestamp = int(date_str[6:-2])  # Extract timestamp
-                        from datetime import datetime
+                        from datetime import datetime, timedelta
                         # Convert UTC timestamp to Toronto time
                         utc_date = datetime.fromtimestamp(timestamp / 1000, tz=pytz.UTC)
                         toronto_tz = pytz.timezone('America/Toronto')
                         toronto_date = utc_date.astimezone(toronto_tz)
+                        # Add one day to match browser display (API timestamp represents previous day)
+                        toronto_date = toronto_date + timedelta(days=1)
                         date_formatted = toronto_date.strftime('%Y-%m-%d')
                     else:
                         date_formatted = 'Unknown'
@@ -330,24 +344,32 @@ def main():
     with open('court-info.json', 'r') as f:
         courts_config = json.load(f)
 
+    # Setup logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    logger = logging.getLogger(__name__)
+    session.logger = logger
+
     # Check all courts
     results = session.check_all_courts(courts_config)
 
-    # Print results
-    print("\n📊 Availability Results:")
+    # Log results
+    logger.info("\nAvailability Results:")
     for court_num, data in results.items():
         if data['availability']:
-            print(f"Court {court_num}: ✓ Data received")
+            logger.info(f"Court {court_num}: Data received")
             # Parse and display available slots
             slots = session.parse_availability_data(data['availability'])
             if slots:
-                print(f"  Available slots: {len(slots)}")
+                logger.info(f"  Available slots: {len(slots)}")
                 for slot in slots[:3]:  # Show first 3 slots
-                    print(f"    - {slot.get('date')} {slot.get('time')}")
+                    logger.info(f"    - {slot.get('date')} {slot.get('time')}")
             else:
-                print("  No available slots found")
+                logger.info("  No available slots found")
         else:
-            print(f"Court {court_num}: ✗ {data.get('error', 'Unknown error')}")
+            logger.error(f"Court {court_num}: {data.get('error', 'Unknown error')}")
 
 
 if __name__ == "__main__":
