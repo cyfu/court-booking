@@ -5,6 +5,7 @@
 ## ✨ 主要功能
 
 - ✅ **检查场地可用性** - 检查所有4个网球场的可用时间段
+- ✅ **SMS 通知** - 通过 Twilio 将查询结果发送到手机
 - ✅ **认证管理** - 自动处理 PerfectMind 系统的认证和会话管理
 - ✅ **预订模拟** - 模拟预订流程（需要进一步开发真实预订功能）
 - ✅ **错误处理** - 完善的错误处理和状态报告
@@ -22,12 +23,18 @@ uv sync
 
 ### 检查场地可用性
 ```bash
-# 检查所有场地的可用性
+# 检查所有场地的可用性（会自动发送 SMS 通知，如果已配置）
 uv run python check_availability.py
 
 # 或者使用预订系统检查
 uv run python book_court.py check
 ```
+
+### 配置 SMS 通知（可选）
+
+1. 按照 [TWILIO_SETUP.md](TWILIO_SETUP.md) 的说明设置 Twilio 账号
+2. 在项目根目录创建 `.env` 文件并配置 Twilio 凭证
+3. 运行 `check_availability.py` 时，查询结果会自动通过 SMS 发送到配置的手机号码
 
 ### 预订功能（模拟）
 ```bash
@@ -41,11 +48,13 @@ uv run python book_court.py
 ## 📁 项目结构
 
 - `PerfectMindSession.py` - 核心会话管理类
-- `check_availability.py` - 可用性检查脚本
+- `check_availability.py` - 可用性检查脚本（集成 SMS 通知）
+- `sms_notifier.py` - Twilio SMS 通知模块
 - `book_court.py` - 预订系统脚本
 - `debug_api.py` - API 调试工具
 - `court-info.json` - 场地配置信息
 - `DOCUMENTATION.md` - 详细文档
+- `TWILIO_SETUP.md` - Twilio SMS 配置指南
 
 ## 🏟️ 场地信息
 
@@ -92,7 +101,6 @@ uv run python debug_api.py
 - 🔐 用户认证系统
 - 💳 支付处理集成
 - 📱 Web 界面
-- 🔔 通知系统
 - ⏰ 定时自动预订
 
 ## ⚠️ 注意事项

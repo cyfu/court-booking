@@ -9,6 +9,7 @@ import sys
 import logging
 from datetime import datetime, timedelta
 from PerfectMindSession import PerfectMindSession
+from sms_notifier import SMSNotifier
 
 # Setup logging
 logging.basicConfig(
@@ -101,6 +102,18 @@ def check_court_availability():
     # Display formatted output
     for slot in all_slots:
         print(slot['formatted'])
+
+    # Send SMS notification if configured
+    sms_notifier = SMSNotifier(logger=logger)
+    if sms_notifier.is_configured():
+        logger.info("Sending SMS notification...")
+        sms_sent = sms_notifier.send_availability_notification(all_slots)
+        if sms_sent:
+            print("\n📱 SMS notification sent successfully!")
+        else:
+            print("\n⚠️  Failed to send SMS notification")
+    else:
+        logger.info("SMS notifier not configured, skipping SMS notification")
 
     return len(all_slots) > 0
 
