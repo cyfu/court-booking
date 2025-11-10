@@ -70,10 +70,10 @@ class SMSNotifier:
             Formatted SMS message string
         """
         if not slots:
-            return "Tennis Court Availability：\n\nNo available slots found."
+            return "Tennis Court Availability：\nNo available slots found."
 
         # Format message header (matching user's example format)
-        message = "Tennis Court Availability：\n\n"
+        message = "Tennis Court Availability：\n"
 
         # Add all available slots
         for slot in slots:
