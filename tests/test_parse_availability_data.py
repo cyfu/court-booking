@@ -51,9 +51,9 @@ class TestParseAvailabilityData:
             assert len(date) == 10  # YYYY-MM-DD format
             assert date.count('-') == 2
 
-        # Assert dates are from 2025-10-07 to 2025-10-12
-        expected_dates = {'2025-10-06', '2025-10-07', '2025-10-08',
-                          '2025-10-09', '2025-10-10', '2025-10-11'}
+        # Assert dates are from 2025-10-07 to 2025-10-12 (6 days)
+        expected_dates = {'2025-10-07', '2025-10-08', '2025-10-09',
+                          '2025-10-10', '2025-10-11', '2025-10-12'}
         assert dates == expected_dates
 
     def test_parse_availability_data_times(self):
