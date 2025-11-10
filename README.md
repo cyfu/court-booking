@@ -1,13 +1,12 @@
 # 🎾 Court Booking System
 
-一个用于自动检查和预订 Angus Glen Tennis Centre 网球场地的 Python 系统。
+一个用于自动检查 Angus Glen Tennis Centre 网球场地可用性的 Python 系统。
 
 ## ✨ 主要功能
 
 - ✅ **检查场地可用性** - 检查所有4个网球场的可用时间段
 - ✅ **SMS 通知** - 通过 Twilio 将查询结果发送到手机
 - ✅ **认证管理** - 自动处理 PerfectMind 系统的认证和会话管理
-- ✅ **预订模拟** - 模拟预订流程（需要进一步开发真实预订功能）
 - ✅ **错误处理** - 完善的错误处理和状态报告
 
 ## 🚀 快速开始
@@ -24,10 +23,7 @@ uv sync
 ### 检查场地可用性
 ```bash
 # 检查所有场地的可用性（会自动发送 SMS 通知，如果已配置）
-uv run python check_availability.py
-
-# 或者使用预订系统检查
-uv run python book_court.py check
+uv run check-availability
 ```
 
 ### 配置 SMS 通知（可选）
@@ -36,21 +32,12 @@ uv run python book_court.py check
 2. 在项目根目录创建 `.env` 文件并配置 Twilio 凭证
 3. 运行 `check_availability.py` 时，查询结果会自动通过 SMS 发送到配置的手机号码
 
-### 预订功能（模拟）
-```bash
-# 自动预订下一个可用时间段
-uv run python book_court.py book
-
-# 交互式模式
-uv run python book_court.py
-```
 
 ## 📁 项目结构
 
 - `PerfectMindSession.py` - 核心会话管理类
 - `check_availability.py` - 可用性检查脚本（集成 SMS 通知）
 - `sms_notifier.py` - Twilio SMS 通知模块
-- `book_court.py` - 预订系统脚本
 - `debug_api.py` - API 调试工具
 - `court-info.json` - 场地配置信息
 - `DOCUMENTATION.md` - 详细文档
@@ -106,7 +93,7 @@ uv run python debug_api.py
 ## ⚠️ 注意事项
 
 - 预订需要 Angus Glen Tennis Centre Player's Card
-- 当前版本为模拟预订，需要进一步开发真实预订功能
+- 本项目专注于场地可用性检查，不包含预订功能。
 - API 响应格式可能会变化
 
 ## 🤝 贡献

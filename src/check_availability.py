@@ -11,8 +11,8 @@ import sys
 import time
 import logging
 from datetime import datetime, timedelta
-from PerfectMindSession import PerfectMindSession
-from sms_notifier import SMSNotifier
+from .PerfectMindSession import PerfectMindSession
+from .sms_notifier import SMSNotifier
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -264,9 +264,9 @@ def main():
                 logger.info(f"Found {len(new_slots)} new slot(s), sending SMS notification...")
                 sms_notifier = SMSNotifier(logger=logger)
                 if sms_notifier.is_configured():
-                    sms_sent = sms_notifier.send_availability_notification(new_slots)
+                    sms_sent = sms_notifier.send_availability_notification(current_slots)
                     if sms_sent:
-                        print(f"\n📱 SMS notification sent for {len(new_slots)} new slot(s)!")
+                        print(f"\n📱 SMS notification sent for {len(current_slots)} time slot(s)!")
                     else:
                         print("\n⚠️  Failed to send SMS notification")
                 else:

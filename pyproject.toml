@@ -1,13 +1,13 @@
 [project]
 name = "court-booking"
 version = "0.1.0"
-description = "Book court from Angus Glen Tennis Center"
+description = "Check court availability from Angus Glen Tennis Center"
 authors = [
-    {name = "Eric Yang A", email = "eric.a.yang@ericsson.com"}
+    {name = "Chu Yun Fu", email = "fuchuyun@gmail.com"}
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.12.2",
     "requests>=2.31.0",
@@ -23,8 +23,11 @@ dev = [
     "flake8>=6.1.0",
 ]
 
+[project.scripts]
+check-availability = "src.check_availability:main"
+
 [tool.hatch.build.targets.wheel]
-packages = ["."]
+packages = ["src"]
 
 [build-system]
 requires = ["hatchling"]
