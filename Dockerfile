@@ -1,6 +1,8 @@
 # Use an official lightweight Python image.
 FROM python:3.13-slim
 
+ENV TZ=America/Toronto
+
 # Set the working directory in the container
 WORKDIR /app
 
